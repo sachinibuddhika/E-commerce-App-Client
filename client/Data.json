@@ -1,0 +1,73 @@
+{
+    "products":[
+
+        {
+            "id":1,
+            "name":"Chuck Taylor All Star Denim'",
+            "description":"WOMEN'S HGIH TOP SHOE",
+            "price":"$85",
+            "image":"/imageStore_image2.jpg",
+            "category":"Sneakers",
+            "quantity":1 
+
+        },
+        {
+            "id":2,
+            "name":"Nike Zoom Vomero Roam",
+            "description":"Men's Winterized Shoes",
+            "price":"$180",
+            "image":"/imageStore_image4.png",
+            "category":"Sneakers",
+            "quantity":1 
+
+        },
+        {
+            "id":3,
+            "name":"Flared Heel Pumps",
+            "description":"Women's shoes peach color velvet ",
+            "price":"$40",
+            "image":"/imageStore_image5.png",
+            "category":"Heels",
+            "quantity":1 
+
+        },
+        {
+            "id":4,
+            "name":"MODARE Casual Slip-on Sandal",
+            "description":"Women's casual leather sandal",
+            "price":"$35",
+            "image":"/imageStore_image6.png",
+            "category":"Sandals",
+            "quantity":1 
+
+        },
+        {
+            "id":5,
+            "name":"Recon Slip Resistant Lace-Up Boot",
+            "description":"Men's Barn Brown 6 inch premium",
+            "price":"$110",
+            "image":"/imageStore_image11.png",
+            "quantity":1 
+
+        },
+        {
+            "id":6,
+            "name":"HuMIWA Fuzzy House Slipper",
+            "description":"Women's indoor fur slipper",
+            "price":"$10",
+            "image":"/imageStore_image24.jpg",
+            "quantity":1 
+
+        },
+        {
+            "id":7,
+            "name":"D&G Dunk Low Glitter",
+            "description":"Women's ankle shoe",
+            "price":"$70",
+            "image":"/imageStore_image16.jpg",
+            "quantity":1 
+
+        }
+
+    ]
+}
