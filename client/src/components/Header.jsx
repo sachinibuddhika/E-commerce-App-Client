@@ -18,37 +18,11 @@ function Header() {
   const logout = () => {
     deleteCookie("_USER_AUTH_");
     navigate("/");
+    localStorage.removeItem("loggedInUser");
+    setUserInfo(null);
   };
 
   return (
-    // <Navbar expand="lg" className="bg-body-tertiary">
-    //   <Container>
-    //     <Navbar.Brand href="#home">Isuri Group</Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //       <Nav className="me-auto">
-    //         <Link className="ms-2 nav-link" to="dashboard">
-    //           Home
-    //         </Link>
-    //         <Link className="ms-2 nav-link" to="admin">
-    //           AdminPanel
-    //         </Link>
-    //         <Link className="ms-2 nav-link" to="user-info">
-    //           User Info
-    //         </Link>
-    //         <Link className="ms-2 nav-link" to="users">
-    //           Users
-    //         </Link>
-    //         <Button variant="primary" className="ms-3">
-    //           <Link to="/login" className="text-white">
-    //             Register/Login
-    //           </Link>
-    //         </Button>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
-
     <AppBar position="sticky" color="primary">
       <Container maxWidth="lg">
         <Toolbar>

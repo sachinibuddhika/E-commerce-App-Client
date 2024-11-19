@@ -3,24 +3,17 @@ import { Navigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
 import UserInfo from "../pages/UserInfo";
 
-function PrivateRoute({ children, allowedRoles }) {
+function PrivateRoute({ children }) {
   const { userInfo } = useUser();
-  //check if the user has the required role
-  const userHasRequireRole =
-    userInfo &&
-    Array.isArray(allowedRoles) &&
-    allowedRoles.includes(userInfo.role.toUpperCase());
+  // Retrieve the logged-in user from localStorage
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-  //if no user is authenticated, navigate to login page
-  if (!userInfo) {
-    return <Navigate to="/" />;
+  // If no user is logged in (loggedInUser is null), navigate to login page
+  if (!loggedInUser) {
+    return <Navigate to="/login" />;
   }
 
-  //if user is authenticated but does not have the required role, navigate to dashboard
-  if (userInfo && !userHasRequireRole) {
-    return <Navigate to="/dashboard" />;
-  }
-
+  // If a user is logged in, render the children (protected route)
   return children;
 }
 

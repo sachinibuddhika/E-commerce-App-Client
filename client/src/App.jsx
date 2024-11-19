@@ -16,14 +16,23 @@ function App() {
       <UserProvider>
         <Header />
         <Routes>
-          {/* Public roue for login */}
+          {/* Public route for login and others*/}
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="register" element={<Registration />} />
           <Route path="admin" element={<AdminPanel />} />
           <Route path="users" element={<Users />} />
           <Route path="user-info" element={<UserInfo />} />
-          <Route path="register" element={<Registration />} />
+
+          {/* Private route for dashboard, accessible only by logged-in users */}
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </UserProvider>
     </div>

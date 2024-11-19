@@ -23,49 +23,11 @@ const validationSchema = Yup.object({
 });
 
 const Registration = () => {
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Handle form field changes
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
-
-  // Handle form submission for registration
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setIsLoading(true);
-
-  //   const users = JSON.parse(localStorage.getItem("users")) || [];
-
-  //   // Check if email already exists
-  //   const userExists = users.some((user) => user.email === formData.email);
-  //   if (userExists) {
-  //     setError("Email is already registered.");
-  //     setIsLoading(false);
-  //     return;
-  //   }
-
-  //   // Save user to localStorage
-  //   users.push(formData);
-  //   localStorage.setItem("users", JSON.stringify(users));
-
-  //   setIsLoading(false);
-  //   alert("Registration successful!");
-  //   navigate("/login");
-  // };
-
-  // Handle form submission with Formik
+  // Handle form submission
   const handleSubmit = (values, { setSubmitting, setErrors }) => {
     setIsLoading(true);
 
@@ -91,12 +53,13 @@ const Registration = () => {
   };
 
   return (
-    <div className="register-section align-content-center">
+    <div className="register-section">
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
+
             alignItems: "center",
             padding: 3,
             boxShadow: 3,
