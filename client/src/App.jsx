@@ -8,6 +8,7 @@ import Users from "./pages/Users";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import { UserProvider } from "./contexts/UserContext";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Routes>
           {/* Public roue for login */}
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="admin" element={<AdminPanel />} />

@@ -7,9 +7,19 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { deleteCookie } from "../utils/common";
+import { useUser } from "../contexts/UserContext.jsx";
 
 function Header() {
+  const navigate = useNavigate();
+  const { userInfo, setUserInfo } = useUser();
+
+  const logout = () => {
+    deleteCookie("_USER_AUTH_");
+    navigate("/");
+  };
+
   return (
     // <Navbar expand="lg" className="bg-body-tertiary">
     //   <Container>
@@ -42,12 +52,10 @@ function Header() {
     <AppBar position="sticky" color="primary">
       <Container maxWidth="lg">
         <Toolbar>
-          {/* Navbar Brand */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Isuri Group
           </Typography>
 
-          {/* Navigation Links */}
           <Box sx={{ display: "flex" }}>
             <Button
               color="inherit"
@@ -82,15 +90,26 @@ function Header() {
               Users
             </Button>
 
-            {/* Register/Login Button */}
-            <Button
-              variant="contained"
-              color="secondary"
-              component={RouterLink}
-              to="/login"
-            >
-              Register/Login
-            </Button>
+            {userInfo ? (
+              <Button
+                variant="contained"
+                color="error"
+                component={RouterLink}
+                to="/login"
+                onClick={logout}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                color="secondary"
+                component={RouterLink}
+                to="/login"
+              >
+                Register/Login
+              </Button>
+            )}
           </Box>
         </Toolbar>
       </Container>
