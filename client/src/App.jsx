@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import AdminPanel from "./pages/AdminPanel";
-import UserInfo from "./pages/UserInfo";
 import Users from "./pages/Users";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
@@ -27,7 +26,6 @@ function App() {
             <Route path="register" element={<Registration />} />
             <Route path="admin" element={<AdminPanel />} />
             <Route path="users" element={<Users />} />
-            <Route path="user-info" element={<UserInfo />} />
 
             {/* Private route for dashboard, accessible only by logged-in users */}
             <Route
