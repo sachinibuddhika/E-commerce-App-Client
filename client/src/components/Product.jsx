@@ -17,12 +17,16 @@ const Product = ({ product }) => {
   return (
     <Card
       sx={{
+        padding: 0,
         width: "100%",
         height: 350,
         display: "flex",
         flexDirection: "column",
         marginBottom: "20px",
         overflow: "hidden",
+        backgroundColor: "#f6f6f6",
+        justifyContent: "center",
+        position: "relative",
       }}
     >
       <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
@@ -58,6 +62,7 @@ const Product = ({ product }) => {
                 textOverflow: "ellipsis",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
+                color: "#000000",
               }}
             >
               {product.name}
@@ -100,10 +105,19 @@ const Product = ({ product }) => {
             display: "flex",
             justifyContent: "center",
             gap: "8px",
+            backgroundColor: "#000000",
+            marginLeft: "-8px",
+            position: "absolute",
+            bottom: "5px",
+            color: "white",
+
             "&:hover": {
-              backgroundColor: "blue",
+              backgroundColor: "#333333",
               color: "white",
             },
+            marginBottom: "5px",
+            position: "absolute",
+            borderRadius: "0px",
           }}
           onClick={() => dispatch({ type: "Add", product: product })}
         >

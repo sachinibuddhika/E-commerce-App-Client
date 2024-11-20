@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useUser } from "../contexts/UserContext";
 import Product from "../components/Product";
 import Data from "../../Data.json";
-import { Grid, Container } from "@mui/material";
+import { Grid, Container, Box, Typography } from "@mui/material";
 
 const Dashboard = () => {
   const { userInfo } = useUser();
@@ -10,7 +10,19 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h6>Dashboard {JSON.stringify(userInfo)}</h6>
+      <Box
+        sx={{
+          display: "flex",
+          marginTop: "50px",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h6">
+          Hello {userInfo.name.split(" ")[0]}! These are the picks for you
+          today....
+        </Typography>
+      </Box>
       <Container
         sx={{
           marginTop: "100px",

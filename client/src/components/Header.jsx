@@ -65,7 +65,7 @@ function Header() {
       <Box
         sx={{
           backgroundColor: "#000000",
-          height: "40px",
+          height: "30px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
