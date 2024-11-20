@@ -2,8 +2,6 @@ import Header from "./components/Header";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import AdminPanel from "./pages/AdminPanel";
-import Users from "./pages/Users";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import { UserProvider } from "./contexts/UserContext";
@@ -12,6 +10,7 @@ import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import CartProvider from "./contexts/CartContext";
 import SearchResults from "./pages/SearchResults";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -21,11 +20,9 @@ function App() {
           <Header />
           <Routes>
             {/* Public route for login and others*/}
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="register" element={<Registration />} />
-            <Route path="admin" element={<AdminPanel />} />
-            <Route path="users" element={<Users />} />
 
             {/* Private route for dashboard, accessible only by logged-in users */}
             <Route

@@ -32,8 +32,12 @@ const CartProduct = ({ product }) => {
       sx={{
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },
-        border: "1px solid",
+        backgroundColor: "#f6f6f6",
+        border: "none",
+        boxShadow: "none",
         mt: 3,
+        marginLeft: "100px",
+        marginRight: "60px",
         padding: 2,
         alignItems: "center",
       }}
@@ -105,9 +109,16 @@ const CartProduct = ({ product }) => {
         </Box>
         <Button
           variant="contained"
-          color="warning"
           size="small"
-          sx={{ mt: 1 }}
+          sx={{
+            mt: 2,
+            padding: "5px 30px",
+            backgroundColor: "black",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#333",
+            },
+          }}
           onClick={() => dispatch({ type: "Remove", id: product.id })}
         >
           Remove

@@ -110,27 +110,15 @@ function Header() {
                   <Button
                     color="inherit"
                     component={RouterLink}
-                    to="dashboard"
+                    to="/dashboard"
                     sx={{
                       marginRight: 2,
                       color: "#000000",
-                      marginLeft: "80%",
+                      marginLeft: "150%",
                       marginRight: "30%",
                     }}
                   >
                     Home
-                  </Button>
-                  <Button
-                    color="inherit"
-                    component={RouterLink}
-                    to="admin"
-                    sx={{
-                      marginRight: 2,
-                      color: "#000000",
-                      marginRight: "10%",
-                    }}
-                  >
-                    AdminPanel
                   </Button>
                 </>
               ) : (

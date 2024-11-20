@@ -32,10 +32,10 @@ const Cart = () => {
           </Grid>
 
           {/* Total chekout price */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} mt={3}>
             <Box
               sx={{
-                backgroundColor: "secondary.main",
+                backgroundColor: "#f6f6f6",
                 color: "white",
                 padding: 3,
                 display: "flex",
@@ -43,22 +43,73 @@ const Cart = () => {
                 alignItems: "flex-start",
                 justifyContent: "space-between",
                 boxSizing: "border-box",
-                width: { xs: "100%", sm: "100%", md: "33%" },
+                width: { xs: "100%", sm: "100%", md: "calc(80% - 50px)" },
                 marginTop: { xs: 2, sm: 2, md: 0 },
+                marginRight: { xs: 0, md: "50px" },
               }}
             >
-              <Typography variant="h5" gutterBottom>
-                Total Items:{totalItems(cart)}
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Total Price:{totalPrice(cart)}
-              </Typography>
+              <Box
+                sx={{
+                  backgroundColor: "#ffbb48",
+                  color: "white",
+                  padding: "10px 15px",
+                  width: "100%",
+                  marginBottom: 2,
+                  textAlign: "center",
+                }}
+              >
+                <Typography variant="h6" fontWeight="bold">
+                  Cart Totals
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "10px 15px",
+                  border: "1px solid #ddd", // Outline for the box
+                  borderRadius: "4px",
+                  width: "100%",
+                  marginBottom: 2, // Space below the item
+                }}
+              >
+                <Typography variant="body2" sx={{ color: "black" }}>
+                  Total Items:
+                </Typography>
+                <Typography variant="body2" sx={{ color: "black" }}>
+                  {totalItems(cart)}
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "10px 15px",
+                  border: "1px solid #ddd", // Outline for the box
+                  borderRadius: "4px",
+                  width: "100%",
+                }}
+              >
+                <Typography variant="body2" sx={{ color: "black" }}>
+                  Total Price:
+                </Typography>
+                <Typography variant="body2" sx={{ color: "black" }}>
+                  {totalPrice(cart)}
+                </Typography>
+              </Box>
               <Button
                 variant="contained"
-                color="warning"
                 sx={{
                   width: "100%",
                   marginTop: 2,
+                  backgroundColor: "black", // Black background color
+                  color: "white", // White text color
+                  "&:hover": {
+                    backgroundColor: "#333", // Darker black on hover
+                  },
                 }}
               >
                 Checkout

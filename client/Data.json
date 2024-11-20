@@ -3,8 +3,8 @@
 
         {
             "id":1,
-            "name":"Chuck Taylor All Star Denim'",
-            "description":"WOMEN'S HGIH TOP SHOE",
+            "name":"Converse All Star Denim Shoe",
+            "description":"Women's high toe shoe",
             "price":85,
             "image":"/imageStore_image2.jpg",
             "category":"Sneakers",
@@ -33,7 +33,7 @@
         },
         {
             "id":4,
-            "name":"MODARE Casual Slip-on Sandal",
+            "name":"Casual Slip-on Sandal",
             "description":"Women's casual leather sandal",
             "price":35,
             "image":"/imageStore_image6.png",
@@ -44,7 +44,7 @@
         {
             "id":5,
             "name":"Recon Slip Resistant Lace-Up Boot",
-            "description":"Men's Barn Brown 6 inch premium",
+            "description":"Men's barn brown boot",
             "price":110,
             "image":"/imageStore_image11.png",
             "category":"Boots",
@@ -54,7 +54,7 @@
         {
             "id":6,
             "name":"HuMIWA Fuzzy House Slipper",
-            "description":"Women's indoor fur slipper",
+            "description":"Women's indoor slipper",
             "price":10,
             "image":"/imageStore_image24.jpg",
             "category":"Slippers",
