@@ -12,6 +12,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import CartProvider from "./contexts/CartContext";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -43,6 +44,15 @@ function App() {
               element={
                 <PrivateRoute>
                   <Cart />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="search"
+              element={
+                <PrivateRoute>
+                  <SearchResults />
                 </PrivateRoute>
               }
             />

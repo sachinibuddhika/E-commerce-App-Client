@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,7 +8,7 @@ import {
   Typography,
   Badge,
   IconButton,
-  Link,
+  TextField,
 } from "@mui/material";
 import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 import { deleteCookie } from "../utils/common";
@@ -19,7 +19,7 @@ import { CartContext } from "../contexts/CartContext";
 function Header() {
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useUser();
-  const location = useLocation();
+  const location = useLocation(); // To check the current route
   const { cart } = useContext(CartContext);
 
   if (!cart) {
@@ -36,9 +36,29 @@ function Header() {
     setUserInfo(null);
   };
 
-  // Check if the user is logged in and is on a private route (like 'dashboard')
+  // Check if the user is logged in
   const isLoggedIn = userInfo || localStorage.getItem("loggedInUser");
-  const isPrivateRoute = location.pathname.includes("dashboard");
+
+  // State for search query
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Handle search input change
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Handle search form submit
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    console.log("searched for ", event.value);
+    if (searchQuery) {
+      // Redirect to the search results page with the query as a URL parameter
+      navigate(`/search?q=${searchQuery}`);
+    }
+  };
+
+  // Check if the current route is 'dashboard' or any route starting with '/dashboard'
+  const isDashboardPage = location.pathname.startsWith("/dashboard");
 
   return (
     <AppBar position="sticky" color="primary">
@@ -49,8 +69,8 @@ function Header() {
           </Typography>
 
           <Box sx={{ display: "flex", flexGrow: 1 }}>
-            {/* If user is logged in and on a private route (like 'dashboard'), show simplified nav */}
-            {!isPrivateRoute ? (
+            {/* If user is logged in and on a private route, show simplified nav */}
+            {!isDashboardPage ? (
               <>
                 <Button
                   color="inherit"
@@ -87,6 +107,31 @@ function Header() {
               </>
             ) : (
               <Box sx={{ flexGrow: 1 }} />
+            )}
+          </Box>
+
+          <Box sx={{ display: "flex", flexGrow: 1 }}>
+            {/* Render the search bar only when logged in and on the 'dashboard' page */}
+            {isLoggedIn && isDashboardPage && (
+              <form
+                onSubmit={handleSearchSubmit}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginRight: "20px",
+                }}
+              >
+                <TextField
+                  variant="outlined"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  size="small"
+                  sx={{ marginRight: 2 }}
+                />
+                <Button type="submit" variant="contained" color="secondary">
+                  Search
+                </Button>
+              </form>
             )}
           </Box>
 
