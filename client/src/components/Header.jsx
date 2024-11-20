@@ -22,6 +22,13 @@ function Header() {
   const location = useLocation();
   const { cart } = useContext(CartContext);
 
+  if (!cart) {
+    return <p>Loading...</p>; // Return loading message if cart is not available yet
+  }
+
+  // Safely access cart.length
+  const cartLength = cart.length;
+
   const logout = () => {
     deleteCookie("_USER_AUTH_");
     navigate("/");

@@ -20,11 +20,21 @@ const Cart = () => {
         <Grid container spacing={3}>
           {/* The list of added items */}
           <Grid item xs={12} md={8}>
-            {cart.map((product) => (
+            {/* {cart.map((product) => (
               <Box key={product.id} mb={3}>
                 <CartProduct product={product} />
               </Box>
-            ))}
+            ))} */}
+
+            {cart.length > 0 ? (
+              cart.map((product) => (
+                <Box key={product.id} mb={3}>
+                  <CartProduct product={product} />
+                </Box>
+              ))
+            ) : (
+              <Typography>No items in your cart</Typography>
+            )}
           </Grid>
 
           {/* Total chekout price */}

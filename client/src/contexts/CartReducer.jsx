@@ -12,7 +12,7 @@ export const totalPrice = (cart) => {
 };
 
 //function to perform different actions according to cart state
-const CartReducer = (state, action) => {
+const CartReducer = (state = [], action) => {
   switch (action.type) {
     case "Add":
       return [...state, action.product];
@@ -30,6 +30,10 @@ const CartReducer = (state, action) => {
           ? { ...product, quantity: product.quantity - 1 }
           : product
       );
+
+    case "LOAD":
+      return action.cart;
+
     default:
       state;
   }
