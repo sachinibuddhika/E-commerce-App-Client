@@ -47,6 +47,7 @@
             "description":"Men's Barn Brown 6 inch premium",
             "price":110,
             "image":"/imageStore_image11.png",
+            "category":"Boots",
             "quantity":1 
 
         },
@@ -56,6 +57,7 @@
             "description":"Women's indoor fur slipper",
             "price":10,
             "image":"/imageStore_image24.jpg",
+            "category":"Slippers",
             "quantity":1 
 
         },
@@ -65,6 +67,7 @@
             "description":"Women's ankle shoe",
             "price":70,
             "image":"/imageStore_image16.jpg",
+            "category":"Sneakers",
             "quantity":1 
 
         }

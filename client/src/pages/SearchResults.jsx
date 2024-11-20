@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Grid, Box, Typography } from "@mui/material";
-import Data from "../../Data.json"; // Import your products from Data.json
-import Product from "../components/Product"; // Import the reusable Product component
+import Data from "../../Data.json";
+import Product from "../components/Product";
 
 const SearchResults = () => {
   const location = useLocation();
@@ -15,7 +15,11 @@ const SearchResults = () => {
     if (searchQuery) {
       const results = Data.products.filter(
         (product) =>
-          product.name.toLowerCase().includes(searchQuery.toLowerCase()) // Case-insensitive filtering
+          product.name.toLowerCase().includes(searchQuery.toLowerCase()) || // Case-insensitive filtering on name
+          product.description
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
+          product.category.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredProducts(results);
     }
