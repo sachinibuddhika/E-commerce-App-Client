@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardContent,
@@ -10,8 +10,10 @@ import {
   Box,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CartContext } from "../contexts/CartContext";
 
 const Product = ({ product }) => {
+  const { dispatch } = useContext(CartContext);
   return (
     <Card
       sx={{
@@ -103,6 +105,7 @@ const Product = ({ product }) => {
               color: "white",
             },
           }}
+          onClick={() => dispatch({ type: "Add", product: product })}
         >
           <ShoppingCartIcon sx={{ color: "inherit", fontSize: "17px" }} /> Add
           to Cart

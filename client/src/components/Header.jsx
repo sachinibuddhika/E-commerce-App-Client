@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,16 +8,19 @@ import {
   Typography,
   Badge,
   IconButton,
+  Link,
 } from "@mui/material";
 import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 import { deleteCookie } from "../utils/common";
 import { useUser } from "../contexts/UserContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CartContext } from "../contexts/CartContext";
 
 function Header() {
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useUser();
   const location = useLocation();
+  const { cart } = useContext(CartContext);
 
   const logout = () => {
     deleteCookie("_USER_AUTH_");
@@ -103,8 +106,13 @@ function Header() {
             )}
 
             {isLoggedIn && (
-              <IconButton color="inherit" sx={{ marginRight: 2 }}>
-                <Badge badgeContent={4} color="error">
+              <IconButton
+                color="inherit"
+                sx={{ marginRight: 2 }}
+                component={RouterLink}
+                to="/cart"
+              >
+                <Badge badgeContent={cart.length} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
