@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+
 import {
   Box,
   Button,
@@ -10,6 +12,21 @@ import {
 import { Remove, Add } from "@mui/icons-material"; // For minus and plus icons
 
 const CartProduct = ({ product }) => {
+  const { cart, dispatch } = useContext(CartContext);
+
+  const Increase = (id) => {
+    const Index = cart.findIndex((p) => p.id === id);
+    if (cart[Index].quantity < 10) {
+      dispatch({ type: "Increase", id });
+    }
+  };
+  const Decrease = (id) => {
+    const Index = cart.findIndex((p) => p.id === id);
+    if (cart[Index].quantity > 1) {
+      dispatch({ type: "Decrease", id });
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -56,7 +73,16 @@ const CartProduct = ({ product }) => {
           {product.price}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
-          <IconButton sx={{ borderRadius: "50%" }}>
+          <IconButton
+            sx={{
+              borderRadius: "50%",
+              width: "40px",
+              textAlign: "center",
+              minWidth: "40px",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+            }}
+            onClick={() => Decrease(product.id)}
+          >
             <Remove />
           </IconButton>
           <Button
@@ -70,11 +96,20 @@ const CartProduct = ({ product }) => {
           >
             {product.quantity}
           </Button>
-          <IconButton sx={{ borderRadius: "50%" }}>
+          <IconButton
+            sx={{ borderRadius: "50%" }}
+            onClick={() => Increase(product.id)}
+          >
             <Add />
           </IconButton>
         </Box>
-        <Button variant="contained" color="warning" size="small" sx={{ mt: 1 }}>
+        <Button
+          variant="contained"
+          color="warning"
+          size="small"
+          sx={{ mt: 1 }}
+          onClick={() => dispatch({ type: "Remove", id: product.id })}
+        >
           Remove
         </Button>
       </Box>
