@@ -59,12 +59,12 @@ const Registration = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-
+            marginTop: -5,
             alignItems: "center",
             padding: 3,
             boxShadow: 3,
             borderRadius: 1,
-            backgroundColor: "background.paper",
+            backgroundColor: "#f6f6f6",
           }}
         >
           <Typography variant="h5" gutterBottom>
@@ -145,9 +145,17 @@ const Registration = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  color="primary"
+                  color=" #000000"
                   disabled={isSubmitting || isLoading}
-                  sx={{ mt: 2 }}
+                  sx={{
+                    mt: 2,
+                    backgroundColor: "black",
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "#333",
+                      color: "white",
+                    },
+                  }}
                 >
                   {isLoading ? (
                     <CircularProgress size={24} color="inherit" />

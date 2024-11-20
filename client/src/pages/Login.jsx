@@ -65,6 +65,7 @@ const Login = () => {
         alignItems="center"
         minHeight="100vh"
         bgcolor="#f4f6f9"
+        sx={{ marginTop: -5 }}
       >
         <Container maxWidth="xs">
           <Box
@@ -72,7 +73,7 @@ const Login = () => {
             padding={4}
             borderRadius={2}
             boxShadow={3}
-            bgcolor="white"
+            bgcolor="#f6f6f6"
           >
             <Typography variant="h5" gutterBottom align="center">
               Log In
@@ -165,6 +166,13 @@ const Login = () => {
                       fullWidth
                       type="submit"
                       disabled={isSubmitting || isLoading}
+                      sx={{
+                        backgroundColor: "#000000",
+                        color: "#ffffff",
+                        "&:hover": {
+                          backgroundColor: "#333333",
+                        },
+                      }}
                     >
                       {isLoading ? "Logging in..." : "Log In"}
                     </Button>
@@ -175,7 +183,7 @@ const Login = () => {
             <Box mt={2} textAlign="center">
               <Typography variant="body2">
                 Don't have an account yet?{" "}
-                <Link href="/register" variant="body2" color="primary">
+                <Link href="/register" variant="body2" color="#ffbb48">
                   Register
                 </Link>
               </Typography>
