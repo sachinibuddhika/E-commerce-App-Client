@@ -4,7 +4,7 @@ Welcome to the Shoe Store App! This is a web application built using React and V
 ### How to run:
 This application is created using REACT+Vite.  Go to client folder by "cd client", then run "npm run dev"
 
-### Features:
+### Additional features:
 + Responsive and Attractive UI: Works across all devices for an optimized experience.
 + Welcome Page: A warm welcome greets new and returning users.
 + Personalized Greetings: Displays the user's name after login.
