@@ -12,12 +12,12 @@ import {
 import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 import { deleteCookie } from "../utils/common";
 import { useUser } from "../contexts/UserContext";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; // Add Cart Icon
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function Header() {
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useUser();
-  const location = useLocation(); // Get the current location/path
+  const location = useLocation();
 
   const logout = () => {
     deleteCookie("_USER_AUTH_");
@@ -38,7 +38,6 @@ function Header() {
             Isuri Group
           </Typography>
 
-          {/* Left side: contains navigation buttons and logout */}
           <Box sx={{ display: "flex", flexGrow: 1 }}>
             {/* If user is logged in and on a private route (like 'dashboard'), show simplified nav */}
             {!isPrivateRoute ? (
@@ -77,12 +76,10 @@ function Header() {
                 </Button>
               </>
             ) : (
-              // Only show Cart Icon on private routes like dashboard
               <Box sx={{ flexGrow: 1 }} />
             )}
           </Box>
 
-          {/* Right side: contains Cart Icon and Logout */}
           <Box sx={{ display: "flex" }}>
             {isLoggedIn ? (
               <Button
