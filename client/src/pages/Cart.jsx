@@ -3,6 +3,7 @@ import { CartContext } from "../contexts/CartContext";
 import { Grid, Box, Typography, Button } from "@mui/material";
 import { useUser } from "../contexts/UserContext.jsx";
 import CartProduct from "../components/CartProduct.jsx";
+import { totalItems, totalPrice } from "../contexts/CartReducer.jsx";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
@@ -43,10 +44,10 @@ const Cart = () => {
               }}
             >
               <Typography variant="h5" gutterBottom>
-                Total Items:
+                Total Items:{totalItems(cart)}
               </Typography>
               <Typography variant="h5" gutterBottom>
-                Total Price:
+                Total Price:{totalPrice(cart)}
               </Typography>
               <Button
                 variant="contained"

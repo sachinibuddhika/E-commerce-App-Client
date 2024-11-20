@@ -70,7 +70,7 @@ const CartProduct = ({ product }) => {
             textOverflow: "ellipsis",
           }}
         >
-          {product.price}
+          ${product.price}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
           <IconButton

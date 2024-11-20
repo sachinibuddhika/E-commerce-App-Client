@@ -81,7 +81,7 @@ const Product = ({ product }) => {
                 fontSize: "0.8rem",
               }}
             >
-              {product.price}
+              ${product.price}
             </Typography>
           </CardContent>
         </Box>

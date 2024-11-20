@@ -1,3 +1,16 @@
+//function to calculate total number of items  in the cart
+export const totalItems = (cart) => {
+  return cart.reduce((sum, product) => sum + product.quantity, 0);
+};
+
+//functions to calculate total price in the cart
+export const totalPrice = (cart) => {
+  return cart.reduce(
+    (total, product) => total + product.quantity * product.price,
+    0
+  );
+};
+
 //function to perform different actions according to cart state
 const CartReducer = (state, action) => {
   switch (action.type) {
