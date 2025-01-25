@@ -13,7 +13,12 @@ const Home = () => {
       }}
     >
       <Grid container spacing={2} sx={{ alignItems: "center" }}>
-        <Grid item xs={12} md={6}>
+        <Grid
+          sx={{ marginLeft: "-25px", marginTop: "-25px" }}
+          item
+          xs={12}
+          md={6}
+        >
           <Box
             component="img"
             src="/home.jpg"
